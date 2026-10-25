@@ -2,12 +2,17 @@ package com.dilip.CrudSpringbootDemo.entity;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import javax.annotation.processing.Generated;
 
 @Entity
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -15,6 +20,8 @@ public class Student {
     private  int rollNo;
     private String email;
     private String subject;
+    private boolean deleted;
+
 
     public Long getId() {
         return id;
@@ -62,5 +69,13 @@ public class Student {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }
